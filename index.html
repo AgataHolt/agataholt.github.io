@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Agata Holt | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          crossorigin="anonymous" />
+
+    <style>
+        :root {
+            --bg-dark: #050816;
+            --accent-blue: #38bdf8;
+            --accent-purple: #a855f7;
+            --accent-gradient: linear-gradient(90deg, #38bdf8, #a855f7);
+            --text-main: #e5e7eb;
+            --text-soft: #9ca3af;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+            color: var(--text-main);
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 15, 30, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 50;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0.7rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            letter-spacing: 0.06rem;
+            font-size: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.3rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        /* PAGE */
+        .page {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 0.9fr 1.4fr;
+            gap: 2rem;
+        }
+
+        /* PROFILE CARD */
+        .profile-card {
+            background: #0b1121;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            border-radius: 1.2rem;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .profile-title {
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-tagline {
+            margin-top: 0.7rem;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+        }
+
+        .profile-highlight {
+            margin-top: 0.8rem;
+            padding: 0.9rem;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.13);
+            font-size: 0.88rem;
+        }
+
+        /* ICONS WITH GLOW */
+        .social-icons {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
+        }
+
+        .social-icons a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s ease;
+        }
+
+        .social-icons a i {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            transition: 0.25s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-4px) scale(1.1);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 15px #38bdf8, 0 0 25px #a855f7;
+        }
+
+        .social-icons a:hover i {
+            color: var(--accent-purple);
+            text-shadow: 0 0 10px #38bdf8, 0 0 20px #a855f7;
+        }
+
+        .location-pill {
+            margin-top: 1rem;
+            display: inline-block;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            border: 1px dashed rgba(255,255,255,0.25);
+            color: var(--text-soft);
+        }
+
+        /* CONTENT BOXES */
+        .content section {
+            background: #0b1121;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.7rem;
+            margin-bottom: 1.7rem;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        section h2 {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        section h2 span {
+            background: rgba(56,189,248,0.15);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            color: var(--accent-blue);
+        }
+
+        .section-subtitle {
+            color: var(--text-soft);
+            margin-top: 0.3rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        /* PILLS */
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .pill {
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.82rem;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skills-card {
+            padding: 1rem;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .skills-card h3 {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .skills-card li {
+            color: var(--text-soft);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* PROJECTS */
+        .projects-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .project-item {
+            padding: 1rem 1.2rem;
+            border-radius: 1.2rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .project-body {
+            color: var(--text-soft);
+            margin-top: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        /* GALLERY */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            border-radius: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .project-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #38bdf8, 0 0 22px #a855f7;
+        }
+
+        /* CONTACT ICONS GLOW */
+        .contact-list i {
+            margin-right: 0.5rem;
+            color: var(--accent-blue);
+            transition: 0.25s;
+        }
+
+        .contact-list a:hover i {
+            color: var(--accent-purple);
+            text-shadow: 0 0 10px #38bdf8, 0 0 18px #a855f7;
+        }
+
+        /* RESUME BUTTON */
+        .btn-primary {
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.87rem;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-primary:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px #38bdf8, 0 0 25px #a855f7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.4rem;
+            color: var(--text-soft);
+            font-size: 0.8rem;
+        }
+
+        /* LIGHTBOX */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+        }
+
+        .lightbox-overlay.active { display: flex; }
+
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        #closeLightbox {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .page { grid-template-columns: 1fr; }
+            .profile-card { position: static; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">AGATA HOLT</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact me</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="page">
+
+    <!-- PROFILE CARD -->
+    <aside class="profile-card">
+        <div class="profile-photo">
+            <img src="agata-profile.jpg" alt="Agata Holt">
+        </div>
+
+        <div class="profile-name">Agata Holt</div>
+        <div class="profile-title">Computer Science and Cybersecurity (Combined Degree)</div>
+
+        <p class="profile-tagline">
+            Computer Science major pursuing a Combined Degree in Cybersecurity at St. Mary’s University.
+        </p>
+
+        <div class="profile-highlight">
+            I focus on secure systems, problem-solving, and building reliable software using C, C++, Java, and Python.
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/agataholt" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/AgataHolt" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/holt.agata" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="location-pill">San Antonio, Texas</div>
+    </aside>
+
+    <div class="content">
+
+        <!-- ABOUT -->
+        <section id="about">
+            <h2>About Me <span>Intro</span></h2>
+
+            <p class="section-subtitle">
+                I am a Computer Science major at St. Mary’s University pursuing a Combined Degree in Cybersecurity. 
+                I enjoy understanding how technology works at a deeper level and I’m especially interested in secure systems, problem-solving, and software development.
+            </p>
+
+            <p style="font-size:0.92rem; margin-bottom:0.45rem;">
+                I’ve always been someone who learns by doing. Whether I’m writing algorithms, analyzing how data moves through a program, or building console-based games, I like digging into the details until everything fits together. 
+                Coding feels like solving a puzzle and that’s what motivates me the most.
+            </p>
+
+            <p style="font-size:0.92rem; margin-bottom:0.45rem;">
+                I bring a strong work ethic shaped by years of leadership and customer-facing roles. 
+                I’m comfortable adapting quickly, communicating clearly, and helping others understand technical ideas. 
+                My goal is to continue improving my skills while contributing to meaningful, secure, and well-designed solutions.
+            </p>
+
+            <div class="pill-row">
+                <span class="pill">Computer Science and Cybersecurity</span>
+                <span class="pill">C, C++, Java, Python</span>
+                <span class="pill">Algorithms and Secure Systems</span>
+                <span class="pill">Problem Solving and Debugging</span>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <h2>Skills <span>Tech and Tools</span></h2>
+            <p class="section-subtitle">Technologies and tools I use to turn ideas into real, working systems.</p>
+
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>C and C++</li>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Cybersecurity</h3>
+                    <ul>
+                        <li>Risk Management</li>
+                        <li>NIST Frameworks</li>
+                        <li>Basic Network Security</li>
+                    </ul>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>VS Code</li>
+                        <li>IntelliJ IDEA</li>
+                        <li>Git and GitHub</li>
+                        <li>Linux Command Line</li>
+                    </ul>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Strengths</h3>
+                    <ul>
+                        <li>Teamwork and leadership</li>
+                        <li>Clear communication</li>
+                        <li>Adaptability</li>
+                        <li>Fluent in English, Portuguese, Spanish</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <h2>Projects <span>Code</span></h2>
+            <p class="section-subtitle">A selection of my hands-on programming and cybersecurity-related work.</p>
+
+            <div class="projects-list">
+
+                <!-- BATTLESHIP -->
+                <article class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Battleship Command – C Console Game</div>
+                        <div class="project-tech">C Programming</div>
+                    </div>
+                    <p class="project-body">
+                        A two-player Battleship game built in C with ASCII graphics, randomized ship placement, 
+                        turn-based logic, and safe-spacing rules to prevent overlapping ships.
+                    </p>
+
+                    <div class="project-gallery">
+                        <img src="battleship1.png" class="gallery-img">
+                        <img src="battleship2.png" class="gallery-img">
+                        <img src="battleshipcode.png" class="gallery-img">
+                    </div>
+
+                    <div style="margin-top:1rem;">
+                        <a class="btn-primary" href="https://github.com/AgataHolt" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <!-- AI PROJECT -->
+                <article class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">AI Music Recommender</div>
+                        <div class="project-tech">Python and Data</div>
+                    </div>
+                    <p class="project-body">
+                        A project that identifies similarities between songs based on energy, danceability, 
+                        valence, and other musical attributes to recommend tracks with a similar “feel.”
+                    </p>
+
+                    <a class="btn-primary" href="https://github.com/AgataHolt" target="_blank">
+                        <i class="fab fa-github"></i> View AI Project
+                    </a>
+                </article>
+
+                <!-- COURSEWORK -->
+                <article class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">Algorithms and OOP Coursework</div>
+                        <div class="project-tech">C++ and Java</div>
+                    </div>
+                    <p class="project-body">
+                        Coursework exploring algorithms, ADTs, recursion, GUI development in JavaFX and Swing, 
+                        and advanced problem-solving techniques.
+                    </p>
+
+                    <a class="btn-primary" href="https://github.com/AgataHolt" target="_blank">
+                        <i class="fab fa-github"></i> View Coursework
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- RESUME -->
+        <section id="resume">
+            <h2>Resume <span>Overview</span></h2>
+            <p class="section-subtitle">
+                A summary of my academic path and technical foundations. Full resume available below.
+            </p>
+
+            <ul style="color:var(--text-soft); font-size:0.9rem; line-height:1.6;">
+                <li>B.S. in Computer Science</li>
+                <li>Combined Degree in Cybersecurity</li>
+                <li>Experience in algorithms, OOP, systems, and cybersecurity fundamentals</li>
+                <li>Fluent in Portuguese and English, advanced Spanish</li>
+            </ul>
+
+            <div style="margin-top:1rem;">
+                <a class="btn-primary" href="Agata_Holt_Resume.pdf" target="_blank">
+                    <i class="fas fa-file-alt"></i> View or Download Resume
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2>Contact Me <span>Let’s Talk</span></h2>
+            <p class="section-subtitle">
+                I’m currently seeking internships, technical projects, and opportunities to apply my skills in cybersecurity and software development.
+            </p>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <ul class="contact-list" style="list-style:none; font-size:0.9rem;">
+                    <li><a href="mailto:agata.holt@icloud.com"><i class="fas fa-envelope"></i> agata.holt@icloud.com</a></li>
+                    <li><a href="https://linkedin.com/in/agataholt" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/agataholt</a></li>
+                    <li><a href="https://github.com/AgataHolt" target="_blank"><i class="fab fa-github"></i> github.com/AgataHolt</a></li>
+                    <li><a href="https://instagram.com/holt.agata" target="_blank"><i class="fab fa-instagram"></i> @holt.agata</a></li>
+                </ul>
+
+                <p style="color:var(--text-soft); font-size:0.9rem; line-height:1.6;">
+                    If you’re working on something interesting, building a project, or exploring cybersecurity challenges, feel free to reach out. 
+                    I'm always open to new opportunities to learn and contribute.
+                </p>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<footer>© <span id="year"></span> Agata Holt. All rights reserved.</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+    <span id="closeLightbox">Close ✕</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.gallery-img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+        });
+    });
+
+    document.getElementById('closeLightbox').addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
+</script>
+
+</body>
+</html>
